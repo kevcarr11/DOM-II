@@ -16,6 +16,20 @@ pTags.forEach(pTags => {
         event.preventDefault();
         pTags.style.color = randomColor();
     })
+}) // stop Propagation user here!!
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach(button => {
+    button.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        event.target.style.backgroundColor = 'darkBlue';
+    })
+}) // Nested 'click' Event for propagation
+const containers = document.querySelectorAll('.destination');
+containers.forEach(container => {
+    container.addEventListener('click', event => {
+        event.target.style.backgroundColor = 'yellow';
+    })
 })
 // 2    dblclick
 const funBus = document.querySelector('h1');
